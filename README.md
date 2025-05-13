@@ -7,14 +7,9 @@ This project implements Deadline‐Monotonic (DM) scheduling and Response‐Time
 - **Deadline_Monotonic.cpp**  
   - `loadTasks()` – load task set and simulation horizon from **tasks.txt**  
   - `responseTimeTest()` – perform RTA on each task  
-  - `simulateDM()` – simulate DM scheduling and report any deadline misses  
-  - Utility printers: sorted jobs, RTA results, horizontal schedule chart  
+  - `simulateDM()` – simulate DM scheduling and report any deadline misses   
 - **tasks.txt**  
   Input file listing tasks (`R C T D`) and final line = simulation time.  
-- **Ye.ipynb**  
-  (Optional) Jupyter notebook for interactive experiments.  
-- **.vscode/tasks.json**  
-  Preconfigured build task for **g++**.
 
 ## Prerequisites
 
