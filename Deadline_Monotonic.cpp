@@ -108,27 +108,33 @@ void printSchedule(const vector<int>& schedule) {
     cout << "-- Schedule (horizontal) --\n";
     const int labelW = 8;
     const int cellW  = 4;
+    const size_t maxCols = 20;  // tối đa 20 ô mỗi dòng
 
-    // Tiêu đề thời gian
-    cout << setw(labelW) << "";
-    for (int i = 0; i < schedule.size(); ++i) {
-        cout << "|" << setw(cellW) << i;
-    }
-    cout << "|\n";
+    size_t n = schedule.size();
+    for (size_t start = 0; start < n; start += maxCols) {
+        size_t end = min(n, start + maxCols);
 
-    // Dòng phân cách
-    cout << string(labelW, '-');
-    for (int i = 0; i < schedule.size(); ++i) {
-        cout << "+" << string(cellW, '-');
-    }
-    cout << "+\n";
+        // Tiêu đề thời gian
+        cout << setw(labelW) << "Time";
+        for (size_t i = start; i < end; ++i) {
+            cout << "|" << setw(cellW) << i;
+        }
+        cout << "|\n";
 
-    // Dòng ID task
-    cout << setw(labelW) << "Task ID";
-    for (const auto &s : schedule) {
-        cout << "|" << setw(cellW) << s;
+        // Dòng phân cách
+        cout << string(labelW, '-');
+        for (size_t i = start; i < end; ++i) {
+            cout << "+" << string(cellW, '-');
+        }
+        cout << "+\n";
+
+        // Dòng ID task
+        cout << setw(labelW) << "Task ID";
+        for (size_t i = start; i < end; ++i) {
+            cout << "|" << setw(cellW) << schedule[i];
+        }
+        cout << "|\n\n";
     }
-    cout << "|\n\n";
 }
 
 // Sinh tất cả các job trong khoảng simTime
